@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salón Essencial | Peluquería en Alcobendas</title>
+<meta name="description" content="Salón Essencial en Alcobendas: Olga y Nuria, peluquería profesional. 4,8★ en Google (17 reseñas)." />
+<meta name="theme-color" content="#f6f4ef" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f6f4ef;
+    --cream-card: #ffffff;
+    --cream-dim: #ebe7dd;
+    --ink: #26291f;
+    --ink-soft: #6a6d5e;
+    --black: #1a1c14;
+    --gold: #6b8a72;
+    --gold-light: #93ac97;
+    --gold-dark: #4c6650;
+    --radius: 14px;
+    --radius-pill: 999px;
+    --font-title: "Manrope", system-ui, sans-serif;
+    --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --container: 1180px;
+    --header-h: 76px;
+    --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+  .container { width: min(var(--container), 100% - 40px); margin-inline: auto; }
+  .section { padding: clamp(80px, 11vw, 140px) 0; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: .75rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold-dark); font-weight: 700;
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--gold); border-radius: 2px; }
+  .section-title {
+    font-family: var(--font-title); font-weight: 800;
+    font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.14; letter-spacing: -.01em;
+    color: var(--ink); margin: 18px 0 20px;
+  }
+  .section-title em { color: var(--gold-dark); font-style: normal; }
+  .section-lead { color: var(--ink-soft); max-width: 620px; font-size: 1.05rem; }
+  .section-head { margin-bottom: 60px; }
+  .section-head.center { text-align: center; }
+  .section-head.center .section-lead { margin-inline: auto; }
+  .section-head.center .eyebrow::after { content: ""; width: 34px; height: 2px; background: var(--gold); border-radius: 2px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 30px; border-radius: var(--radius-pill);
+    font-size: .9rem; font-weight: 700; letter-spacing: .02em;
+    transition: transform .3s var(--ease), background .3s, color .3s, box-shadow .3s, border-color .3s;
+    white-space: nowrap;
+  }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+    color: #fff;
+    box-shadow: 0 10px 30px -10px rgba(76, 102, 80, .5);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -12px rgba(76, 102, 80, .7); }
+  .btn-outline { border: 1px solid rgba(38,41,31,.35); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-dark); transform: translateY(-2px); }
+  .hero .btn-outline, .cta-band .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; }
+  .hero .btn-outline:hover, .cta-band .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .btn-whatsapp { background: #25d366; color: #06280f; }
+  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(37, 211, 102, .6); }
+
+  .header {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    height: var(--header-h);
+    display: flex; align-items: center;
+    transition: background .4s, border-color .4s, backdrop-filter .4s;
+    border-bottom: 1px solid transparent;
+  }
+  .header.scrolled {
+    background: rgba(246, 244, 239, .92);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom-color: rgba(38,41,31,.12);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .logo { display: flex; align-items: baseline; gap: 10px; line-height: 1; }
+  .logo-mark { font-family: var(--font-title); font-weight: 800; font-size: 1.55rem; color: #fff; letter-spacing: -.01em; transition: color .3s; }
+  .logo-mark span { color: var(--gold-light); font-weight: 500; }
+  .logo-sub { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.7); transition: color .3s; }
+  .header.scrolled .logo-mark { color: var(--ink); }
+  .header.scrolled .logo-sub { color: var(--ink-soft); }
+  .footer .logo-mark { color: var(--ink); }
+  .footer .logo-mark span { color: var(--gold-dark); }
+  .footer .logo-sub { color: var(--ink-soft); }
+
+  .nav-links { display: flex; align-items: center; gap: 34px; }
+  .nav-links a {
+    font-size: .85rem; letter-spacing: .02em; color: #fff; font-weight: 600;
+    position: relative; padding: 6px 0; transition: color .3s;
+  }
+  .header.scrolled .nav-links a { color: var(--ink); }
+  body.menu-open .header.scrolled .nav-links a { color: #fff; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; border-radius: 2px;
+    background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease);
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
+  .nav-cta { padding: 11px 22px; font-size: .8rem; }
+  .nav-links .mobile-only { display: none; }
+  .nav-links a.btn { padding: 15px 30px; color: #fff; }
+  .nav-links a.btn::after { display: none; }
+
+  .menu-toggle { display: none; width: 44px; height: 44px; position: relative; z-index: 120; }
+  .menu-toggle span {
+    position: absolute; left: 10px; right: 10px; height: 2px; background: #fff; border-radius: 2px;
+    transition: transform .35s var(--ease), opacity .25s, top .35s var(--ease), background .3s;
+  }
+  .header.scrolled .menu-toggle span { background: var(--ink); }
+  body.menu-open .header.scrolled .menu-toggle span { background: #fff; }
+  .menu-toggle span:nth-child(1) { top: 15px; }
+  .menu-toggle span:nth-child(2) { top: 21px; }
+  .menu-toggle span:nth-child(3) { top: 27px; }
+  .menu-open .menu-toggle span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+  .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+  .menu-open .menu-toggle span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+  .hero {
+    position: relative; min-height: 100vh; min-height: 100svh;
+    display: flex; align-items: center;
+    padding: calc(var(--header-h) + 40px) 0 90px;
+    background: radial-gradient(ellipse at 70% 30%, #2c3a2e 0%, var(--black) 60%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url("https://images.unsplash.com/photo-1626383137804-ff908d2753a2?q=80&w=1800&auto=format&fit=crop") center 35%/cover no-repeat;
+    transform: scale(1.06);
+    animation: heroZoom 18s ease-out forwards;
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(26,28,20,.94) 0%, rgba(26,28,20,.8) 45%, rgba(26,28,20,.4) 100%),
+      linear-gradient(0deg, var(--black) 0%, transparent 30%);
+  }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+  .hero-title {
+    font-family: var(--font-title); font-weight: 800; color: #fff; letter-spacing: -.01em;
+    font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.06; margin: 22px 0 24px;
+  }
+  .hero-title em { color: var(--gold-light); font-style: normal; }
+  .hero-text { font-size: clamp(1rem, 1.6vw, 1.15rem); color: #d8ded6; max-width: 540px; margin-bottom: 38px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-rating {
+    display: inline-flex; align-items: center; gap: 14px; margin-top: 46px;
+    padding: 12px 20px 12px 14px; border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius-pill);
+    background: rgba(255,255,255,.06); backdrop-filter: blur(6px);
+    font-size: .85rem; color: #e5e9e0;
+  }
+  .hero-rating strong { color: #fff; font-weight: 800; font-size: 1rem; }
+  .scroll-hint {
+    position: absolute; left: 50%; bottom: 28px; z-index: 2; transform: translateX(-50%);
+    width: 26px; height: 42px; border: 1px solid rgba(255,255,255,.35); border-radius: 20px;
+  }
+  .scroll-hint::before {
+    content: ""; position: absolute; left: 50%; top: 8px; width: 3px; height: 8px; margin-left: -1.5px;
+    background: var(--gold-light); border-radius: 2px; animation: scrollDot 2s infinite;
+  }
+  @keyframes scrollDot { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
+
+  .stats{background:var(--black);color:#fff;padding:36px 0;border-top:1px solid #2a2e20;}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:20px;max-width:1180px;margin:0 auto;padding:0 24px;}
+  .stats b{display:block;font-family:var(--font-title);font-weight:800;font-size:1.4rem;color:var(--gold-light);}
+  .stats span{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;opacity:.75;}
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+  .about-media { position: relative; }
+  .about-media .img-main {
+    aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden;
+    background: linear-gradient(160deg, var(--cream-dim), var(--cream));
+  }
+  .about-media img { width: 100%; height: 100%; object-fit: cover; }
+  .about-media::before {
+    content: ""; position: absolute; inset: -18px 18px 18px -18px;
+    border: 1px solid rgba(76,102,80,.4); border-radius: var(--radius); z-index: -1;
+  }
+  .about-badge {
+    position: absolute; right: -22px; bottom: 36px;
+    background: var(--cream-card); border: 1px solid rgba(38,41,31,.12); border-radius: var(--radius);
+    padding: 22px 26px; text-align: center; box-shadow: 0 24px 50px -20px rgba(38,41,31,.25);
+  }
+  .about-badge .num { font-family: var(--font-title); font-weight: 800; font-size: 1.7rem; color: var(--gold-dark); line-height: 1; }
+  .about-badge .lbl { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-top: 8px; }
+  .about-text p { color: var(--ink-soft); margin-bottom: 18px; }
+  .about-quote {
+    margin-top: 26px; padding: 20px 24px; border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--cream-dim);
+    font-style: italic; color: var(--ink); font-size: .95rem;
+  }
+  .about-quote cite { display: block; margin-top: 10px; font-style: normal; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 36px; }
+  .pillar { padding-top: 18px; border-top: 1px solid rgba(38,41,31,.12); }
+  .pillar h3 { font-family: var(--font-title); font-weight: 700; color: var(--ink); font-size: 1.05rem; margin-bottom: 6px; }
+  .pillar p { font-size: .88rem; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+
+  .services { background: var(--cream-dim); }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .service-card {
+    position: relative; overflow: hidden; text-align: center;
+    background: linear-gradient(180deg, var(--cream-card), var(--cream-dim));
+    border: 1px solid rgba(38,41,31,.12); border-radius: var(--radius);
+    padding: 34px 24px 30px;
+    transition: transform .45s var(--ease), border-color .45s, box-shadow .45s;
+  }
+  .service-card:hover { transform: translateY(-6px); border-color: rgba(76,102,80,.4); box-shadow: 0 30px 60px -30px rgba(38,41,31,.22); }
+  .service-icon {
+    width: 54px; height: 54px; border-radius: 50%;
+    display: grid; place-items: center; margin: 0 auto 20px;
+    border: 1px solid rgba(76,102,80,.45); color: var(--gold-dark);
+    transition: background .4s, color .4s;
+  }
+  .service-icon svg { width: 24px; height: 24px; }
+  .service-card:hover .service-icon { background: var(--gold); color: #fff; }
+  .service-card h3 { font-family: var(--font-title); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+
+  .portfolio { background: var(--cream-dim); }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .portfolio-grid img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius); display: block;
+    box-shadow: 0 20px 44px -26px rgba(38,41,31,.35);
+  }
+  @media (max-width: 700px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
+  .testimonials { background: var(--cream-card); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .testi-card {
+    background: var(--cream-dim); border: 1px solid rgba(38,41,31,.1); border-radius: var(--radius);
+    padding: 30px 26px;
+  }
+  .testi-stars { color: var(--gold-dark); font-size: .95rem; letter-spacing: .1em; margin-bottom: 14px; }
+  .testi-card p { font-size: .92rem; color: var(--ink); margin-bottom: 18px; }
+  .testi-card cite { font-style: normal; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+  @media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
+
+  .cta-band {
+    position: relative; padding: clamp(70px, 9vw, 110px) 0; text-align: center; overflow: hidden;
+    background: linear-gradient(135deg, #2c3a2e, #1a1c14 70%);
+    border-block: 1px solid rgba(255,255,255,.1);
+  }
+  .cta-band .container { position: relative; }
+  .cta-band h2 { font-family: var(--font-title); font-weight: 800; color: #fff; font-size: clamp(1.8rem, 3.8vw, 2.8rem); line-height: 1.2; margin-bottom: 14px; }
+  .cta-band h2 em { color: var(--gold-light); font-style: normal; }
+  .cta-band p { color: #d8ded6; margin-bottom: 32px; }
+  .cta-band .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  .contact { background: var(--cream-dim); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 30px; align-items: stretch; }
+  .contact-card {
+    background: var(--cream-card); border: 1px solid rgba(38,41,31,.12); border-radius: var(--radius);
+    padding: clamp(28px, 4vw, 44px);
+  }
+  .contact-item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid rgba(38,41,31,.12); }
+  .contact-item:first-child { padding-top: 0; }
+  .contact-item:last-of-type { border-bottom: 0; }
+  .contact-item .ic {
+    width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
+    display: grid; place-items: center; border: 1px solid rgba(76,102,80,.45); color: var(--gold-dark);
+  }
+  .contact-item .ic svg { width: 19px; height: 19px; }
+  .contact-item h3 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); font-weight: 700; margin-bottom: 4px; }
+  .contact-item p, .contact-item a { color: var(--ink); font-size: 1rem; }
+  .contact-item a:hover { color: var(--gold); }
+  .contact-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; }
+  .map-wrap {
+    border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(38,41,31,.12);
+    min-height: 340px; background: var(--cream-card); position: relative;
+  }
+  .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .footer { padding: 70px 0 34px; background: var(--cream-dim); border-top: 1px solid rgba(38,41,31,.12); }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1px solid rgba(38,41,31,.12); }
+  .footer-brand p { color: var(--ink-soft); max-width: 320px; font-size: .9rem; margin-top: 16px; }
+  .footer-nav { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-nav h4 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); font-weight: 700; margin-bottom: 16px; }
+  .footer-nav li { margin-bottom: 8px; font-size: .9rem; color: var(--ink-soft); }
+  .footer-nav a:hover { color: var(--gold-dark); }
+  .socials { display: flex; gap: 12px; margin-top: 22px; }
+  .socials a {
+    width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(38,41,31,.12); color: var(--ink); transition: all .3s;
+  }
+  .socials a:hover { border-color: var(--gold); color: #fff; background: var(--gold); transform: translateY(-3px); }
+  .socials svg { width: 18px; height: 18px; }
+  .footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 26px; font-size: .8rem; color: var(--ink-soft); }
+
+  .wa-float { position: fixed; bottom: 24px; right: 24px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,.3); z-index: 60; }
+  .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+  @media (max-width: 900px) {
+    :root { --header-h: 68px; }
+    .menu-toggle { display: block; }
+    .nav-cta.desktop { display: none; }
+    .nav-links {
+      position: fixed; inset: 0; z-index: 110;
+      flex-direction: column; justify-content: center; gap: 28px;
+      background: rgba(26,28,20,.98); backdrop-filter: blur(10px);
+      opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s;
+    }
+    .nav-links a { font-family: var(--font-title); font-weight: 700; font-size: 1.7rem; }
+    .nav-links .btn { font-family: var(--font-body); font-size: .9rem; margin-top: 14px; }
+    .menu-open .nav-links { opacity: 1; visibility: visible; }
+    .nav-links .mobile-only { display: block; }
+    .menu-open { overflow: hidden; }
+
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-media { max-width: 480px; margin-inline: auto; width: calc(100% - 18px); margin-left: 18px; }
+    .about-badge { right: -8px; }
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .map-wrap { min-height: 300px; }
+    .stats .wrap{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (max-width: 640px) {
+    .container { width: calc(100% - 32px); }
+    .pillars { grid-template-columns: 1fr; gap: 0; }
+    .pillar { padding: 16px 0; }
+    .hero-actions .btn { flex: 1 1 100%; }
+    .contact-actions { grid-template-columns: 1fr; }
+    .logo-sub { display: none; }
+    .footer-nav { gap: 36px; }
+    .services-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <nav class="container nav" aria-label="Navegación principal">
+      <a href="#inicio" class="logo" aria-label="Salón Essencial, inicio">
+        <span class="logo-mark">Essen<span>cial</span></span>
+        <span class="logo-sub">Peluquería · Alcobendas</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li class="mobile-only"><a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="btn btn-gold js-whatsapp" target="_blank" rel="noopener">Reservar cita</a></li>
+      </ul>
+
+      <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="btn btn-gold nav-cta desktop js-whatsapp" target="_blank" rel="noopener">Reservar cita</a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-bg" role="img" aria-label="Interior de un salón de peluquería"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow reveal">Alcobendas · Peluquería</span>
+          <h1 class="hero-title reveal d1">Lo <em>esencial</em>, bien hecho</h1>
+          <p class="hero-text reveal d2">
+            Olga y Nuria, dos profesionales con mucha experiencia, en la Calle
+            Marqués de la Valdavia, 92.
+          </p>
+          <div class="hero-actions reveal d3">
+            <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="btn btn-gold js-whatsapp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
+              Reservar cita
+            </a>
+            <a class="btn btn-outline" href="#servicios">Ver servicios</a>
+          </div>
+          <div class="hero-rating reveal d3">
+            <strong>4,8★</strong>&nbsp;· 17 reseñas en Google
+          </div>
+        </div>
+      </div>
+      <a href="#nosotros" class="scroll-hint" aria-label="Bajar a la siguiente sección"></a>
+    </section>
+
+    <div class="stats">
+      <div class="wrap">
+        <div><b>4,8★</b><span>17 reseñas Google</span></div>
+        <div><b>Olga</b><span>&amp; Nuria</span></div>
+        <div><b>1ª calidad</b><span>Productos profesionales</span></div>
+        <div><b>Alcobendas</b><span>C. Marqués de la Valdavia</span></div>
+      </div>
+    </div>
+
+    <section class="section about" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <div class="img-main">
+            <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=1200&auto=format&fit=crop" alt="Peluquería profesional" loading="lazy" width="900" height="1125" />
+          </div>
+          <div class="about-badge">
+            <div class="num">4,8★</div>
+            <div class="lbl">17 reseñas</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="eyebrow reveal">Nuestro salón</span>
+          <h2 class="section-title reveal d1">Dos profesionales,<br><em>un mismo cuidado</em></h2>
+          <p class="reveal d2">
+            En <strong>Salón Essencial</strong>, Olga y Nuria trabajan exclusivamente con
+            productos de peluquería de primera calidad. Cortes, mechas y cambios de
+            imagen con el trato cercano de un salón de barrio.
+          </p>
+          <p class="reveal d2">
+            Nos encontrarás en la <strong>Calle Marqués de la Valdavia, 92</strong>, en
+            Alcobendas.
+          </p>
+
+          <div class="about-quote reveal d2">
+            "Tanto Olga como Nuria son encantadoras, pero sobre todo son súper profesionales, y los productos que utilizan son exclusivamente de peluquería y 1ª calidad."
+            <cite>— Ángel Amor Cruz, Google</cite>
+          </div>
+
+          <div class="pillars">
+            <div class="pillar reveal d1">
+              <h3>Productos de 1ª calidad</h3>
+              <p>Solo marcas profesionales de peluquería.</p>
+            </div>
+            <div class="pillar reveal d2">
+              <h3>4,8 en Google</h3>
+              <p>17 reseñas reales de clientas de Alcobendas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicios">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow reveal">Servicios</span>
+          <h2 class="section-title reveal d1">Lo que <em>hacemos</em></h2>
+          <p class="section-lead reveal d2">Consulta precios y disponibilidad por WhatsApp.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l3 6-9 12L3 9Z"/><path d="M3 9h18M12 21 8 9l4-6 4 6Z"/></svg></div>
+            <h3>Corte y peinado</h3>
+          </article>
+          <article class="service-card reveal d1">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4c4 0 4 16 8 16s4-16 8-16"/></svg></div>
+            <h3>Mechas y color</h3>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 3-6 6-6 10a6 6 0 0 0 12 0c0-4-3-7-6-10Z"/></svg></div>
+            <h3>Tratamientos capilares</h3>
+          </article>
+          <article class="service-card reveal d1">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3>Cambios de imagen</h3>
+          </article>
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+          <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="btn btn-gold js-whatsapp" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio" id="galeria">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow reveal">Galería</span>
+          <h2 class="section-title reveal d1">Nuestro <em>estilo</em></h2>
+          <p class="section-lead reveal d2">Una muestra del tipo de trabajo que hacemos en el salón.</p>
+        </div>
+        <div class="portfolio-grid">
+          <img class="reveal" src="https://images.unsplash.com/photo-1560264641-1b5191cc63e2?q=80&w=1200&auto=format&fit=crop" alt="Resultado de corte y color" loading="lazy">
+          <img class="reveal d1" src="https://images.unsplash.com/photo-1605980766335-d3a41c7332a1?q=80&w=1200&auto=format&fit=crop" alt="Resultado de peinado" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="opiniones">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow reveal">Opiniones</span>
+          <h2 class="section-title reveal d1">Lo que dicen <em>de nosotras</em></h2>
+          <p class="section-lead reveal d2">Reseñas reales de Google, 4,8★ sobre 17 opiniones.</p>
+        </div>
+        <div class="testi-grid">
+          <div class="testi-card reveal">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Tanto Olga como Nuria son encantadoras, pero sobre todo son súper profesionales, y los productos que utilizan son exclusivamente de peluquería y 1ª calidad."</p>
+            <cite>Ángel Amor Cruz</cite>
+          </div>
+          <div class="testi-card reveal d1">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Gracias por el gran cambio que me has dado, estoy más que encantada con el corte, las mechas, el trato, todo!"</p>
+            <cite>Estela Rueda</cite>
+          </div>
+          <div class="testi-card reveal d2">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Personal muy profesional y con una simpatía arrolladora, siempre sales contenta porque sales divina!!"</p>
+            <cite>Charo Yubero</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="reveal">¿Reservamos tu <em>próxima cita?</em></h2>
+        <p class="reveal d1">Escríbenos por WhatsApp y te confirmamos hueco con Olga o Nuria.</p>
+        <div class="actions reveal d2">
+          <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="btn btn-whatsapp js-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+            Reservar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Contacto</span>
+          <h2 class="section-title reveal d1">Te esperamos en <em>Alcobendas</em></h2>
+          <p class="section-lead reveal d2">Reserva por WhatsApp o pásate directamente al salón.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <div class="contact-item">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div>
+                <h3>Dirección</h3>
+                <p>Calle Marqués de la Valdavia, 92<br>28100 Alcobendas, Madrid</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></div>
+              <div>
+                <h3>Teléfono</h3>
+                <a href="tel:+34916532871">916 53 28 71</a>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="btn btn-whatsapp js-whatsapp" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+                WhatsApp
+              </a>
+              <a href="tel:+34916532871" class="btn btn-outline" style="border-color:rgba(38,41,31,.35);color:var(--ink);">
+                Llamar
+              </a>
+            </div>
+          </div>
+
+          <div class="map-wrap reveal d1">
+            <iframe
+              title="Mapa de Salón Essencial en Calle Marqués de la Valdavia 92, Alcobendas"
+              src="https://maps.google.com/maps?q=Calle%20Marqu%C3%A9s%20de%20la%20Valdavia%2092%2C%20Alcobendas&z=16&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#inicio" class="logo"><span class="logo-mark">Essen<span>cial</span></span><span class="logo-sub">Peluquería · Alcobendas</span></a>
+          <p>Peluquería en Alcobendas con Olga y Nuria. Corte, color, tratamientos y cambios de imagen.</p>
+          <div class="socials">
+            <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="js-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp de Salón Essencial">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <div>
+            <h4>Navegación</h4>
+            <ul>
+              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#galeria">Galería</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Visítanos</h4>
+            <ul>
+              <li>Calle Marqués de la Valdavia, 92</li>
+              <li>Alcobendas, Madrid</li>
+              <li><a href="tel:+34916532871">916 53 28 71</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Salón Essencial. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/34916532871?text=Hola%2C%20quer%C3%ADa%20reservar%20una%20cita%20en%20Sal%C3%B3n%20Essencial." class="wa-float js-whatsapp" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const body = document.body;
+    const toggle = document.getElementById('menu-toggle');
+    const setMenu = open => {
+      body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setMenu(!body.classList.contains('menu-open')));
+    document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => { el.style.opacity=0; el.style.transform='translateY(20px)'; el.style.transition='opacity .7s ease, transform .7s ease'; revealObs.observe(el); });
+    const revealStyle = document.createElement('style');
+    revealStyle.textContent = '.reveal.visible{opacity:1 !important;transform:none !important;}';
+    document.head.appendChild(revealStyle);
+  </script>
+</body>
+</html>
